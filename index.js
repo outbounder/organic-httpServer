@@ -21,9 +21,11 @@ module.exports = Organel.extend(function(plasma, dna){
     })
   },
   emitReady: function(){
+    if(this.config.log)
+      console.log("HttpServer running at", this.config.port)
     this.emit({
       type: this.config.emit.ready,
-      server: this.server
+      data: this.server
     })
   }
 })
