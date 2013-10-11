@@ -3,7 +3,7 @@ var http = require('http');
 
 module.exports = Organel.extend(function(plasma, dna){
   Organel.call(this, plasma, dna);
-  
+
   var self = this;
   this.server = http.createServer(function(req, res){ self.emitIncomingRequest(req, res) });
   this.server.listen(this.config.port, this.config.ip, function(){self.emitReady()});
@@ -12,12 +12,13 @@ module.exports = Organel.extend(function(plasma, dna){
   })
 }, {
   emitIncomingRequest: function(req, res) {
+    var self = this
     this.emit({
       type: this.config.emit.request,
       req: req,
       res: res
     }, function(c){
-      this.emit(c);
+      self.emit(c);
     })
   },
   emitReady: function(){
