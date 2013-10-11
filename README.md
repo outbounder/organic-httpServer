@@ -2,6 +2,8 @@
 
 The organelle wraps core httpServer implementation.
 
+It starts httpServer listening upon construction.
+
 ## DNA structure and defaults
 
     {
@@ -14,9 +16,9 @@ The organelle wraps core httpServer implementation.
     }
 
 
-## Reactions
+## Emits chemicals when
 
-### started listening
+### listening
 
 Emitted with Chemical type value of `dna.emit.ready`.
 Chemical's structure:
@@ -36,3 +38,9 @@ Chemical's structure:
       "req": HttpRequest,
       "res": HttpResponse
     }
+
+## Reacts to chemicals
+
+### type: "kill"
+
+Closes underlaying httpServer instance
